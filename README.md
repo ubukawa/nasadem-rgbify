@@ -3,6 +3,13 @@ Creation of RGB elevation tile from NASA dem
 
 
 # Procedure
+##
+```
+docker run -it --rm -v ${PWD}:/data unvt/rgbify:ubukawa
+cd /data
+```
+
+
 ## Download
 Obtain NASA user account at https://urs.earthdata.nasa.gov/users/new
 
@@ -12,6 +19,7 @@ echo login YourID >> ~/.netrc
 echo password YourPassword >> ~/.netrc
 cd src
 ./dl.sh
+cd ..
 ```
 
 
