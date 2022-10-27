@@ -1,0 +1,1 @@
+for f in src/*.zip; do unzip ${f} -d 01_unpack; rm 01_unpack/*.num; rm 01_unpack/*.swb; done

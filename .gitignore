@@ -1,1 +1,3 @@
+node_modules
 src/*.zip
+01_unpack/*

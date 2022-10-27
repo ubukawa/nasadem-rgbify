@@ -29,11 +29,11 @@ const sleep = (wait) => {
 }
 
 let fileList = fs.readdirSync(srcDir) //list from the src folder
-fileList = fileList.filter(r => r.indexOf('.tif') !== -1) //only tiff file
+fileList = fileList.filter(r => r.indexOf('.hgt') !== -1) //only hgt file 
 
-let srtmFiles = [] //list from the src folder. file name: nXX_eXXX_1arc_V3.tif
+let nasademFiles = [] //list from the src folder. file name: nXX_eXXX
 for (let i=0; i<fileList.length; i++){
-    srtmFiles.push(fileList[i].replace('SRTM1','').replace('W','_w').replace('E','_e').replace('V3','_1arc_v3.tif').toLowerCase())
+    nasademFiles.push(fileList[i].replace('w','_w').replace('e','_e').toLowerCase())
 }
 
 //keys (6-x-y)
@@ -87,8 +87,8 @@ for (const key of keys){
                 }
                 n = `N${n}`
             }
-            nm = `${n.toLowerCase()}_${m.toLowerCase()}_1arc_v3.tif`
-            if(srtmFiles.includes(nm)){
+            nm = `${n.toLowerCase()}_${m.toLowerCase()}.hgt`
+            if(nasademFiles.includes(nm)){
                 //console.log (`${nm}---> yes(${key})`)
                 modulesObj[key].push(`${srcDir}/${nm}`)
             }    

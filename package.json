@@ -2,7 +2,7 @@
   "name": "data",
   "version": "1.0.0",
   "description": "Rgbifying NASA",
-  "main": "index4merge-re.js",
+  "main": "index4merge.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
