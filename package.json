@@ -4,7 +4,8 @@
   "description": "Rgbifying NASA",
   "main": "index4merge.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "merge": "node index4merge.js",
+    "rgbify": "node index4rgb.js"
   },
   "repository": {
     "type": "git",

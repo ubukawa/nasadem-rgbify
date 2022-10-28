@@ -1,6 +1,5 @@
 {
     srcDir: 01_unpack
-    srcTestDir: src-test
     gdalmergePath: gdal_merge.py
     rasterioPath: rasterio 
     maxZ: 12 
