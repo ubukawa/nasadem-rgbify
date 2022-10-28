@@ -1,3 +1,5 @@
 node_modules
 src/*.zip
+src/temp
 01_unpack/*
+test

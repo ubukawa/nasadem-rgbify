@@ -28,13 +28,8 @@ const sleep = (wait) => {
     })
 }
 
-let fileList = fs.readdirSync(srcDir) //list from the src folder
-fileList = fileList.filter(r => r.indexOf('.hgt') !== -1) //only hgt file 
-
-let nasademFiles = [] //list from the src folder. file name: nXX_eXXX
-for (let i=0; i<fileList.length; i++){
-    nasademFiles.push(fileList[i].replace('w','_w').replace('e','_e').toLowerCase())
-}
+let fileList = fs.readdirSync(srcDir) //list from the src folder (01_unpack)
+let nasademFiles = fileList.filter(r => r.indexOf('.hgt') !== -1) //only hgt file  
 
 //keys (6-x-y)
 for (x = 0; x < 64; x ++){
@@ -87,7 +82,7 @@ for (const key of keys){
                 }
                 n = `N${n}`
             }
-            nm = `${n.toLowerCase()}_${m.toLowerCase()}.hgt`
+            nm = `${n.toLowerCase()}${m.toLowerCase()}.hgt` //e.g. e27e027.hgt
             if(nasademFiles.includes(nm)){
                 //console.log (`${nm}---> yes(${key})`)
                 modulesObj[key].push(`${srcDir}/${nm}`)
@@ -173,7 +168,7 @@ const shutdown = () => {
 
   const main = async () =>{
     const stTime = new Date()
-    console.log(`-------UNVT---------------\n${stTime.toISOString()}: Production starts. \n- From the saved sources, we have ${Object.keys(modulesObj).length} modules with SRTM DEM. \n- ${emptyModules.length} modules are without SRTM DEM.\n- Here is the list of ${Object.keys(modulesObj).length} modules: \n${Object.keys(modulesObj)}\n--------------------------`)
+    console.log(`-------UNVT---------------\n${stTime.toISOString()}: Production starts. \n- From the saved sources, we have ${Object.keys(modulesObj).length} modules with NASADEM. \n- ${emptyModules.length} modules are without NASADEM.\n- Here is the list of ${Object.keys(modulesObj).length} modules: \n${Object.keys(modulesObj)}\n--------------------------`)
     queueTasks()
     queue.on('drain', () => {
         const closeTime = new Date()
