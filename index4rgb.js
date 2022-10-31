@@ -103,7 +103,7 @@ const shutdown = () => {
 
   const main = async () =>{
     const stTime = new Date()
-    console.log(`-------UNVT---------------\n${stTime.toISOString()}: Production starts. \n- From the merged files, we have ${keys.length} modules with SRTM DEM. \n- Here is the list of ${keys.length} modules: \n${keys}\n--------------------------`)
+    console.log(`-------UNVT---------------\n${stTime.toISOString()}: Production starts. \n- From the merged files, we have ${keys.length} modules with NASADEM. \n- Here is the list of ${keys.length} modules: \n${keys}\n--------------------------`)
     queueTasks()
     queue.on('drain', () => {
         const closeTime = new Date()
